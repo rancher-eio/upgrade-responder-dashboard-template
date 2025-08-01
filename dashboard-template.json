@@ -135,7 +135,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "continuous-GrYlRd"
+            "mode": "thresholds"
           },
           "custom": {
             "hideFrom": {
@@ -164,6 +164,11 @@
       },
       "id": 18,
       "options": {
+        "legend": {
+          "displayMode": "spectrum",
+          "placement": "bottom",
+          "show": true
+        },
         "basemap": {
           "config": {},
           "name": "Layer 0",
