@@ -199,6 +199,8 @@
                 },
                 "size": {
                   "field": "total",
+                  "mode": "last",
+                  "fixed": 10,
                   "min": 2,
                   "max": 30
                 },
