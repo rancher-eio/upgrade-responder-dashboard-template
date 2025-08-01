@@ -21,7 +21,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "8.0.0"
+      "version": "9.4.3"
     },
     {
       "type": "panel",
@@ -87,7 +87,7 @@
         "content": "The metrics we're showing here are collected using ${AppName} Upgrade Responder Service, which will notify the user when a new release of ${AppName} is available.\n\nThe source code is available at https://github.com/longhorn/upgrade-responder .",
         "mode": "markdown"
       },
-      "pluginVersion": "8.0.0",
+      "pluginVersion": "9.4.3",
       "targets": [
         {
           "groupBy": [
@@ -135,7 +135,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "continuous-GrYlRd"
+            "mode": "thresholds"
           },
           "custom": {
             "hideFrom": {
@@ -149,12 +149,16 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
+                "color": "rgba(245, 54, 54, 0.9)",
                 "value": null
               },
               {
-                "color": "red",
-                "value": 80
+                "color": "rgba(237, 129, 40, 0.89)",
+                "value": 1
+              },
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "value": 10
               }
             ]
           }
@@ -188,8 +192,7 @@
               "showLegend": true,
               "style": {
                 "color": {
-                  "field": "total",
-                  "fixed": "dark-green"
+                  "field": "total"
                 },
                 "opacity": 0.8,
                 "rotation": {
@@ -199,8 +202,7 @@
                   "mode": "mod"
                 },
                 "size": {
-                  "mode": "last",
-                  "fixed": 10,
+                  "field": "total",
                   "min": 2,
                   "max": 30
                 },
@@ -516,7 +518,7 @@
     }
   ],
   "refresh": false,
-  "schemaVersion": 30,
+  "schemaVersion": 38,
   "style": "dark",
   "tags": [],
   "templating": {
