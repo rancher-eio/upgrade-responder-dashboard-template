@@ -135,13 +135,13 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "thresholds"
+            "mode": "continuous-GrYlRd"
           },
           "custom": {
             "hideFrom": {
               "legend": false,
               "tooltip": false,
-              "viz": false
+              "vis": false
             }
           },
           "mappings": [],
