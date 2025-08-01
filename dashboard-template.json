@@ -251,7 +251,7 @@
           "measurement": "by_country_code_down_sampling",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT last(\"total\") FROM \"by_country_code_down_sampling\" WHERE $timeFilter GROUP BY \"country_isocode\"",
+          "query": "SELECT last(\"total\") as total FROM \"by_country_code_down_sampling\" WHERE $timeFilter GROUP BY \"country_isocode\"",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "table",
