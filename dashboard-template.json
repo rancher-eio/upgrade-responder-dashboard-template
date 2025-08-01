@@ -135,31 +135,21 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "continuous-GrYlRd"
+            "mode": "thresholds"
           },
           "custom": {
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "vis": false
-            }
+            "hideFrom": { "legend": false, "tooltip": false, "viz": false }
           },
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
             "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
+              { "color": "rgba(245, 54, 54, 0.9)", "value": null },
+              { "color": "rgba(237, 129, 40, 0.89)", "value": 0 },
+              { "color": "rgba(50, 172, 45, 0.97)", "value": 10 }
             ]
           }
-        },
-        "overrides": []
+        }
       },
       "gridPos": {
         "h": 9,
@@ -188,88 +178,44 @@
               "showLegend": true,
               "style": {
                 "color": {
-                  "field": "total",
-                  "fixed": "dark-green"
+                  "field": "total"
                 },
                 "opacity": 0.8,
-                "rotation": {
-                  "fixed": 0,
-                  "max": 360,
-                  "min": -360,
-                  "mode": "mod"
-                },
                 "size": {
-                  "mode": "last",
-                  "fixed": 10,
-                  "min": 2,
-                  "max": 30
+                  "field": "total",
+                  "max": 30,
+                  "min": 2
                 },
                 "symbol": {
                   "fixed": "img/icons/marker/circle.svg",
                   "mode": "fixed"
-                },
-                "textConfig": {
-                  "fontSize": 12,
-                  "offsetX": 0,
-                  "offsetY": 0,
-                  "textAlign": "center",
-                  "textBaseline": "middle"
                 }
               }
             },
             "location": {
-              "mode": "lookup",
-              "lookup": "country_isocode"
+              "lookup": "country_isocode",
+              "mode": "lookup"
             },
             "name": "Layer 1",
             "tooltip": true,
             "type": "markers"
           }
         ],
-        "tooltip": {
-          "mode": "details"
-        },
-        "view": {
-          "allLayers": true,
-          "id": "zero",
-          "lat": 0,
-          "lon": 0,
-          "zoom": 1
-        }
+        "view": { "id": "zero", "lat": 0, "lon": 0, "zoom": 1 }
       },
       "targets": [
         {
           "alias": "$tag_country_isocode",
-          "groupBy": [
-            {
-              "params": [
-                "country_isocode"
-              ],
-              "type": "tag"
-            }
-          ],
+          "groupBy": [ { "params": [ "country_isocode" ], "type": "tag" } ],
           "measurement": "by_country_code_down_sampling",
           "orderByTime": "ASC",
-          "policy": "default",
           "query": "SELECT last(\"total\") FROM \"by_country_code_down_sampling\" WHERE $timeFilter GROUP BY \"country_isocode\"",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "table",
           "select": [
-            [
-              {
-                "params": [
-                  "total"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "last"
-              }
-            ]
-          ],
-          "tags": []
+            [ { "params": [ "total" ], "type": "field" }, { "params": [], "type": "last" } ]
+          ]
         }
       ],
       "title": "Active Node Map",
