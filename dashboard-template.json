@@ -107,7 +107,7 @@
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
-          "resultFormat": "time_series",
+          "resultFormat": "table",
           "select": [
             [
               {
@@ -191,7 +191,7 @@
               "showLegend": true,
               "style": {
                 "color": {
-                  "field": "total"
+                  "field": "last"
                 },
                 "opacity": 0.8,
                 "rotation": {
@@ -201,9 +201,7 @@
                   "mode": "mod"
                 },
                 "size": {
-                  "field": "total",
-                  "mode": "last",
-                  "fixed": 10,
+                  "field": "last",
                   "min": 2,
                   "max": 30
                 },
@@ -257,7 +255,7 @@
           "query": "SELECT last(\"total\") FROM \"by_country_code_down_sampling\" WHERE $timeFilter GROUP BY \"country_isocode\"",
           "rawQuery": true,
           "refId": "A",
-          "resultFormat": "table",
+          "resultFormat": "time_series",
           "select": [
             [
               {
