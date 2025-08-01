@@ -107,7 +107,7 @@
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
-          "resultFormat": "time_series",
+          "resultFormat": "table",
           "select": [
             [
               {
@@ -135,7 +135,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "continuous-GrYlRd"
+            "mode": "thresholds"
           },
           "custom": {
             "hideFrom": {
@@ -149,12 +149,15 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "rgba(245, 54, 54, 0.9)"
               },
               {
-                "color": "red",
-                "value": 80
+                "color": "rgba(237, 129, 40, 0.89)",
+                "value": 0
+              },
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "value": 10
               }
             ]
           }
@@ -188,8 +191,7 @@
               "showLegend": true,
               "style": {
                 "color": {
-                  "field": "total",
-                  "fixed": "dark-green"
+                  "field": "last"
                 },
                 "opacity": 0.8,
                 "rotation": {
@@ -199,8 +201,7 @@
                   "mode": "mod"
                 },
                 "size": {
-                  "mode": "last",
-                  "fixed": 10,
+                  "field": "last",
                   "min": 2,
                   "max": 30
                 },
@@ -254,7 +255,7 @@
           "query": "SELECT last(\"total\") FROM \"by_country_code_down_sampling\" WHERE $timeFilter GROUP BY \"country_isocode\"",
           "rawQuery": true,
           "refId": "A",
-          "resultFormat": "table",
+          "resultFormat": "time_series",
           "select": [
             [
               {
